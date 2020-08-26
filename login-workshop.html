@@ -83,9 +83,16 @@
           this.password = this.$.inputPassword.value;
           this.check = this.$.inputCheck.checked;
 
-          if(this.email != '' && this.password != '') {
-            this.signin = true;
-            alert('Hurraa!');
+          if(this.email != '' && this.password != '') 
+          {
+            let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+            
+            if(regex.test(this.email)) {
+              this.signin = true;
+              alert('Hurraa!');
+            } else {
+              alert('Nop!');
+            }
           }
       }
     }
